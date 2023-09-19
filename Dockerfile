@@ -24,7 +24,7 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 ## Add the fftw3 libraries
-COPY --from=gromacs/gromacs:fftw-3.3.8 /usr/local/lib /usr/local/lib
+COPY --from=gromacs/gromacs-docker:fftw-3.3.8 /usr/local/lib /usr/local/lib
 
 # Copy compiled dependencies
 
