@@ -9,7 +9,7 @@
 # sudo nvidia-docker run -it gromacs
 ###############################################################################
 
-FROM nvidia/cuda:10.2-runtime-ubuntu18.04
+FROM nvidia/cuda:12.2.0-runtime-ubuntu20.04
 
 # install required packages
 RUN apt-get update \
@@ -24,7 +24,7 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 ## Add the fftw3 libraries
-COPY --from=gromacs/gromacs-docker:fftw-3.3.8 /usr/local/lib /usr/local/lib
+COPY --from=gromacs/gromacs:fftw-3.3.8 /usr/local/lib /usr/local/lib
 
 # Copy compiled dependencies
 
