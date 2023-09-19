@@ -231,10 +231,10 @@ jobs:
         docker push "${{env.docker_repo}}:${{env.docker_tag}}"
 
     - name: Docker Push latest tag
-      if: github.ref == 'master' || github.repository != 'bioexcel/gromacs-docker'
+      if: github.ref == 'main' || github.repository != 'bioexcel/gromacs-docker'
       run: docker push "${{env.docker_repo}}:latest"
       
     - name: Docker Push dev tag
-      if: github.ref == 'dev' || github.repository != 'bioexcel/gromacs-docker'
+      if: github.ref == 'dev' && github.repository != 'bioexcel/gromacs-docker'
       run: docker push "${{env.docker_repo}}:dev"
 
